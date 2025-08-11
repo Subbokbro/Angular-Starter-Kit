@@ -1,0 +1,19 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"emitDecoratorMetadata": true,
+		"allowSyntheticDefaultImports": true,
+		"outDir": "./dist"
+	},
+
+	"exclude": [
+		"../**/*.spec.ts",
+		"../../../tools/generators/**/**/*.stories.ts"
+	],
+	"include": [
+		"../src/**/*",
+		"*.js",
+		"../../../**/*.stories.*",
+		"../../../.storybook/manager.js"
+	]
+}

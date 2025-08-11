@@ -1,0 +1,32 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"declaration": false,
+		"emitDecoratorMetadata": false,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"lib": ["ES2022", "dom"],
+		"module": "ES2022",
+		"moduleResolution": "node",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"paths": {
+			"@components/*": ["libs/components/*"],
+			"@mockserver/*": ["apps/mockserver/src/*"],
+			"@starterkit-e2e/*": ["apps/starterkit-e2e/src/*"],
+			"@starterkit/*": ["apps/starterkit/src/*"],
+			"@storybook-bundle/*": ["libs/storybook-bundle/src/*"],
+			"@test-helpers/*": ["libs/test-helpers/src/*"]
+		},
+		"resolveJsonModule": true,
+		"rootDir": ".",
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "ES2022"
+	},
+	"exclude": ["node_modules", "tmp"]
+}

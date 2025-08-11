@@ -1,0 +1,37 @@
+{
+	"name": "starterkit-e2e",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"implicitDependencies": ["starterkit"],
+	"projectType": "application",
+	"sourceRoot": "apps/starterkit-e2e/src",
+	"tags": ["scope:starterkit-e2e"],
+	"targets": {
+		"e2e": {
+			"configurations": {
+				"no-serve": {
+					"command": "APP=apps/starterkit-e2e npx cucumber-js --config cucumber.base.js"
+				}
+			},
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'nx serve starterkit --configuration=mock' 'https://localhost:4202/' 'APP=apps/starterkit-e2e npx cucumber-js --config cucumber.base.js'"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"lintFilePatterns": ["apps/starterkit-e2e/**/*.{js,ts}"]
+			},
+			"outputs": ["{options.outputFile}"]
+		},
+		"lint-ci": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"format": "checkstyle",
+				"lintFilePatterns": ["apps/starterkit-e2e/**/*.ts"],
+				"outputFile": "./test-reports/apps/starterkit-e2e/eslint/checkstyle-result.xml"
+			},
+			"outputs": ["{options.outputFile}"]
+		}
+	}
+}

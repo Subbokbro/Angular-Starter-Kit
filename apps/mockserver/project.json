@@ -1,0 +1,37 @@
+{
+	"name": "mockserver",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"sourceRoot": "apps/mockserver/src",
+	"tags": [],
+	"targets": {
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"lintFilePatterns": ["apps/mockserver/**/*.ts"]
+			},
+			"outputs": ["{options.outputFile}"]
+		},
+		"lint:ci": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"format": "checkstyle",
+				"lintFilePatterns": ["apps/mockserver/**/*.ts"],
+				"outputFile": "./test-reports/apps/mockserver/eslint/checkstyle-result.xml"
+			},
+			"outputs": ["{options.outputFile}"]
+		},
+		"serve": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npx ts-node --project ./apps/mockserver/tsconfig.json ./apps/mockserver/src/mockserver.ts"
+			}
+		},
+		"watch": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npx ts-node --project ./apps/mockserver/tsconfig.json ./apps/mockserver/src/mockserver.ts --watch"
+			}
+		}
+	}
+}

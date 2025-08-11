@@ -1,0 +1,64 @@
+{
+	"name": "button",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"prefix": "ui",
+	"projectType": "library",
+	"sourceRoot": "libs/components/button/src",
+	"tags": ["type:ui"],
+	"targets": {
+		"build-storybook": {
+			"executor": "@storybook/angular:build-storybook",
+			"options": {
+				"browserTarget": "button:build-storybook",
+				"compodoc": false,
+				"configDir": "libs/components/button/.storybook",
+				"outputDir": "dist/storybook/button",
+				"styles": []
+			},
+			"outputs": ["{options.outputPath}"]
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"options": {
+				"lintFilePatterns": [
+					"libs/components/button/src/**/*.ts",
+					"libs/components/button/src/**/*.html"
+				]
+			}
+		},
+		"serve": {
+			"executor": "@storybook/angular:start-storybook",
+			"options": {
+				"browserTarget": "button:build-storybook",
+				"compodoc": false,
+				"configDir": "libs/components/button/.storybook",
+				"port": 4400
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"options": {
+				"jestConfig": "libs/components/button/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"outputs": ["{workspaceRoot}/coverage/libs/components/button"]
+		},
+		"test-vr": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "FILESPATH=libs/components/button/src/lib/**/*.vr-spec.ts npm run test-vr"
+			}
+		},
+		"test-vr-update": {
+			"configurations": {
+				"only": {
+					"command": "npx playwright test libs/components/button/src/lib/{args.test}  --config=playwright.config.ts --update-snapshots"
+				}
+			},
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "FILESPATH=libs/components/button/src/lib/**/*.vr-spec.ts npm run test-vr-update"
+			}
+		}
+	}
+}

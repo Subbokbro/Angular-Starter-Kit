@@ -1,0 +1,106 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"affected": {
+		"defaultBase": "origin/master"
+	},
+	"defaultProject": "starterkit",
+	"generators": {
+		"@nx/angular:application": {
+			"e2eTestRunner": "none",
+			"linter": "eslint",
+			"strict": false,
+			"style": "scss",
+			"unitTestRunner": "jest"
+		},
+		"@nx/angular:component": {
+			"style": "scss"
+		},
+		"@nx/angular:library": {
+			"linter": "eslint",
+			"strict": false,
+			"unitTestRunner": "jest"
+		}
+	},
+	"namedInputs": {
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"production": [
+			"default",
+			"!{projectRoot}/**/?(*.){}(spec|test).[jt]s?(x)?(.snap)",
+			"!{projectRoot}/tsconfig.spec.json",
+			"!{projectRoot}/jest.config.[jt]s",
+			"!{projectRoot}/.eslintrc.json",
+			"!{projectRoot}/.storybook/**/*",
+			"!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+			"!{projectRoot}/src/test-setup.[jt]s",
+			"!{projectRoot}/tsconfig.storybook.json"
+		],
+		"sharedGlobals": [
+			"{workspaceRoot}/jest.base.config.ts",
+			"{workspaceRoot}/jest.preset.js",
+			"{workspaceRoot}/nx.json",
+			"{workspaceRoot}/package.json",
+			"{workspaceRoot}/playwright-ci.config.ts",
+			"{workspaceRoot}/playwright.config.ts",
+			"{workspaceRoot}/sonar-project.properties",
+			"{workspaceRoot}/tailwind.config.js",
+			"{workspaceRoot}/tsconfig.base.json",
+			"{workspaceRoot}/libs/assets/i18n/de.json",
+			"{workspaceRoot}/libs/assets/i18n/en.json",
+			"{workspaceRoot}/libs/assets/i18n/fr.json",
+			"{workspaceRoot}/libs/assets/i18n/nl.json"
+		]
+	},
+	"nxCloudAccessToken": "MjNkZWRhNjAtYWQwYy00NjMzLWIxNmQtYWE2MTIwMDIwMzM1fHJlYWQtd3JpdGU=",
+	"parallel": 1,
+	"targetDefaults": {
+		"@nx/jest:jest": {
+			"cache": true,
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			},
+			"inputs": [
+				"default",
+				"^production",
+				"{workspaceRoot}/jest.preset.js"
+			],
+			"options": {
+				"passWithNoTests": true
+			}
+		},
+		"build": {
+			"cache": true,
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
+		},
+		"build-storybook": {
+			"inputs": [
+				"default",
+				"^production",
+				"{workspaceRoot}/.storybook/**/*",
+				"{projectRoot}/.storybook/**/*",
+				"{projectRoot}/tsconfig.storybook.json"
+			]
+		},
+		"e2e": {
+			"cache": true
+		},
+		"lint": {
+			"cache": true,
+			"inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+		},
+		"lint:ci": {
+			"inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+		},
+		"test": {
+			"cache": true,
+			"inputs": [
+				"default",
+				"^production",
+				"{workspaceRoot}/jest.preset.js"
+			]
+		}
+	}
+}

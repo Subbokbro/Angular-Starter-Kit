@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"outDir": "../../out-tsc/server",
+		"target": "ES2022",
+		"useDefineForClassFields": false,
+		"types": ["node"]
+	},
+	"angularCompilerOptions": {
+		"entryModule": "src/app/app.server.module#AppServerModule"
+	},
+	"files": ["src/main.server.ts", "src/ssr.server.ts"],
+	"exclude": ["jest.config.ts"]
+}

@@ -1,0 +1,21 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"declaration": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"lib": ["es2018", "dom"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noEmitOnError": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"sourceMap": true,
+		"target": "ES2022",
+		"typeRoots": ["node_modules/@types"],
+		"types": ["node"]
+	},
+	"include": ["src/mockserver.ts", "**/handler.ts"]
+}

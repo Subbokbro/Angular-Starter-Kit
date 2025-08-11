@@ -1,0 +1,126 @@
+{
+	"root": true,
+	"ignorePatterns": ["**/*"],
+	"plugins": ["@nx", "simple-import-sort"],
+	"extends": ["plugin:tailwindcss/recommended"],
+	"overrides": [
+		{
+			"files": ["*.html"],
+			"rules": {
+				"@angular-eslint/template/attributes-order": [
+					"error",
+					{
+						"alphabetical": true,
+						"order": [
+							"TEMPLATE_REFERENCE", // e.g. `<input #inputRef>`
+							"STRUCTURAL_DIRECTIVE", // e.g. `*ngIf="true"`, `*ngFor="let item of items"`
+							"INPUT_BINDING", // e.g. `[id]="3"`, `[attr.colspan]="colspan"`, [style.width.%]="100", [@triggerName]="expression", `bind-id="handleChange()"`
+							"TWO_WAY_BINDING", // e.g. `[(id)]="id"`, `bindon-id="id"
+							"OUTPUT_BINDING", // e.g. `(idChange)="handleChange()"`, `on-id="handleChange()"`
+							"ATTRIBUTE_BINDING" // e.g. `<input required>`, `id="3"`
+						]
+					}
+				],
+				"simple-import-sort/imports": "off",
+				"tailwindcss/no-custom-classname": [
+					"error",
+					{
+						"classRegex": "^class(Name)?$",
+						"whitelist": []
+					}
+				]
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"rules": {
+				"simple-import-sort/imports": [
+					"error",
+					{
+						"groups": [
+							["^node:"],
+							["^@angular"],
+							["^@?\\w"],
+							["^(@starterkit)(/.*|$)"],
+							["^(@test-helpers)(/.*|$)"],
+							["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+							["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+						]
+					}
+				],
+				"@typescript-eslint/no-unused-vars": [
+					"warn",
+					{
+						"argsIgnorePattern": "^_",
+						"varsIgnorePattern": "^_",
+						"caughtErrorsIgnorePattern": "^_"
+					}
+				],
+				"@nx/enforce-module-boundaries": [
+					"error",
+					{
+						"enforceBuildableLibDependency": false,
+						"allowCircularSelfDependency": true,
+						"allow": [],
+						"depConstraints": [
+							{
+								"sourceTag": "scope:starterkit",
+								"onlyDependOnLibsWithTags": [
+									"scope:starterkit",
+									"type:util",
+									"type:ui"
+								]
+							},
+							{
+								"sourceTag": "scope:starterkit-e2e",
+								"onlyDependOnLibsWithTags": ["type:util"]
+							},
+							{
+								"sourceTag": "type:ui",
+								"onlyDependOnLibsWithTags": [
+									"type:ui",
+									"type:util"
+								]
+							}
+						]
+					}
+				],
+				"brace-style": ["error", "1tbs"],
+				"comma-dangle": ["error", "always-multiline"],
+				"no-duplicate-imports": "error",
+				"no-redeclare": "error",
+				"sort-keys": [
+					"error",
+					"asc",
+					{ "caseSensitive": true, "natural": false, "minKeys": 2 }
+				]
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": ["plugin:@nrwl/nx/typescript"],
+			"parserOptions": { "project": "./tsconfig.*?.json" },
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"extends": ["plugin:@nrwl/nx/javascript"],
+			"rules": {}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": ["plugin:@nx/typescript"],
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"extends": ["plugin:@nx/javascript"],
+			"rules": {}
+		},
+		{
+			"files": "*.json",
+			"parser": "jsonc-eslint-parser",
+			"rules": {}
+		}
+	]
+}

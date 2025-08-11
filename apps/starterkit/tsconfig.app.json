@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"module": "esnext",
+		"outDir": "../../dist/out-tsc",
+		"useDefineForClassFields": false,
+		"types": ["node"]
+	},
+	"files": ["src/main.ts", "src/polyfills.ts"],
+	"include": ["src/**/*.d.ts"],
+	"exclude": ["jest.config.ts", "**/*.test.ts", "**/*.spec.ts"]
+}

